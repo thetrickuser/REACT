@@ -5,6 +5,9 @@
 	},
 	{
 		"path": "react-key-concepts"
+	},
+	{
+		"path": "styling-react-components"
 	}
 ],
   "settings": {}
