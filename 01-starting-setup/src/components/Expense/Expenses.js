@@ -4,6 +4,7 @@ import ExpenseFilter from "./ExpenseFilter";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 function Expenses({ expenses }) {
   const [currentYear, setCurrentYear] = useState("2020");
@@ -21,6 +22,7 @@ function Expenses({ expenses }) {
         onYearChange={filterChangeHandler}
         selectedYear={currentYear}
       />
+      <ExpensesChart values={currentYearExpenses} />
       <ExpensesList items={currentYearExpenses} />
     </Card>
   );
