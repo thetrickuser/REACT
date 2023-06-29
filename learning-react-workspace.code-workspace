@@ -1,14 +1,17 @@
 {
   "folders": [
-	{
-		"path": "01-starting-setup"
-	},
-	{
-		"path": "react-key-concepts"
-	},
-	{
-		"path": "styling-react-components"
-	}
-],
+    {
+      "path": "01-starting-setup"
+    },
+    {
+      "path": "react-key-concepts"
+    },
+    {
+      "path": "styling-react-components"
+    },
+    {
+      "path": "investment-tracker"
+    }
+  ],
   "settings": {}
 }
