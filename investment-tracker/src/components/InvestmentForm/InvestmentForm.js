@@ -2,33 +2,20 @@ import React, { useState } from "react";
 
 import styles from "./InvestmentForm.module.css";
 
+const initialInput = {
+  "current-savings": "",
+  "yearly-contribution": "",
+  "expected-return": "",
+  duration: "",
+};
+
 const InvestmentForm = ({ onResultCalculation }) => {
-  const [currentSavings, setCurrentSavings] = useState("");
-  const [yearlyContribution, setYearlyContribution] = useState("");
-  const [expectedReturn, setExpectedReturn] = useState("");
-  const [duration, setDuration] = useState("");
+  const [userInput, setUserInput] = useState(initialInput);
 
-  const handleCurrentSavingsChange = (event) => {
-    setCurrentSavings(event.target.value);
-  };
-
-  const handleYearlyContributionChange = (event) => {
-    setYearlyContribution(event.target.value);
-  };
-
-  const handleExpectedReturnChange = (event) => {
-    setExpectedReturn(event.target.value);
-  };
-
-  const handleDurationChange = (event) => {
-    setDuration(event.target.value);
-  };
-
-  const userInput = {
-    "current-savings": currentSavings,
-    "yearly-contribution": yearlyContribution,
-    "expected-return": expectedReturn,
-    duration: duration,
+  const handleUserInputChange = (input, value) => {
+    setUserInput((prevInput) => {
+      return { ...prevInput, [input]: +value };
+    });
   };
 
   const calculateHandler = (event) => {
@@ -69,10 +56,7 @@ const InvestmentForm = ({ onResultCalculation }) => {
   };
 
   const resetHandler = () => {
-    setCurrentSavings("");
-    setDuration("");
-    setExpectedReturn("");
-    setYearlyContribution("");
+    setUserInput(initialInput);
     onResultCalculation([]);
   };
 
@@ -80,19 +64,25 @@ const InvestmentForm = ({ onResultCalculation }) => {
     <form className={styles.form} onSubmit={calculateHandler}>
       <div className={styles["input-group"]}>
         <p>
-          <label htmlFor="current-savings">Current Savings ($)</label>
+          <label htmlFor="current-savings">Current Savings (₹)</label>
           <input
             type="number"
             id="current-savings"
-            onChange={handleCurrentSavingsChange}
+            onChange={(event) =>
+              handleUserInputChange("current-savings", event.target.value)
+            }
+            value={userInput["current-savings"]}
           />
         </p>
         <p>
-          <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
+          <label htmlFor="yearly-contribution">Yearly Savings (₹)</label>
           <input
             type="number"
             id="yearly-contribution"
-            onChange={handleYearlyContributionChange}
+            onChange={(event) =>
+              handleUserInputChange("yearly-contribution", event.target.value)
+            }
+            value={userInput["yearly-contribution"]}
           />
         </p>
       </div>
@@ -104,12 +94,22 @@ const InvestmentForm = ({ onResultCalculation }) => {
           <input
             type="number"
             id="expected-return"
-            onChange={handleExpectedReturnChange}
+            onChange={(event) =>
+              handleUserInputChange("expected-return", event.target.value)
+            }
+            value={userInput["expected-return"]}
           />
         </p>
         <p>
           <label htmlFor="duration">Investment Duration (years)</label>
-          <input type="number" id="duration" onChange={handleDurationChange} />
+          <input
+            type="number"
+            id="duration"
+            onChange={(event) =>
+              handleUserInputChange("duration", event.target.value)
+            }
+            value={userInput["duration"]}
+          />
         </p>
       </div>
       <p className={styles.actions}>

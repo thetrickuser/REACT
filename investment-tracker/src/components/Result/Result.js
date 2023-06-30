@@ -2,9 +2,20 @@ import React from "react";
 
 import styles from "./Result.module.css";
 
+const formatter = new Intl.NumberFormat("default", {
+  style: "currency",
+  currency: "INR",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
 const Result = ({ resultData }) => {
   if (resultData.length === 0) {
-    return <p className={styles.fallback}>No data found</p>;
+    return (
+      <p className={styles.fallback}>
+        No investment found. Please enter data to calculate!
+      </p>
+    );
   } else {
     return (
       <div>
@@ -22,10 +33,10 @@ const Result = ({ resultData }) => {
             {resultData.map((data) => (
               <tr key={data.year}>
                 <td>{data.year}</td>
-                <td>{data.savingsEndOfYear}</td>
-                <td>{data.yearlyInterest}</td>
-                <td>{data.totalInterest}</td>
-                <td>{data.investedCapital}</td>
+                <td>{formatter.format(data.savingsEndOfYear)}</td>
+                <td>{formatter.format(data.yearlyInterest)}</td>
+                <td>{formatter.format(data.totalInterest)}</td>
+                <td>{formatter.format(data.investedCapital)}</td>
               </tr>
             ))}
           </tbody>
