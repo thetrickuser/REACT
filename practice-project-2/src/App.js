@@ -16,11 +16,11 @@ function App() {
   // }
 
   return (
-    <div>
+    <React.Fragment>
       <InputForm onAddUser={handleAddUser} />
       {!showResults && <p>Please enter any data</p>}
       {showResults && <Results data={userData} />}
-    </div>
+    </React.Fragment>
   );
 }
 

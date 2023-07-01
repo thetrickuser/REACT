@@ -3,7 +3,7 @@ import ErrorModal from "./ErrorModal";
 import Card from "./Card";
 
 import styles from "./InputForm.module.css";
-import Button from "../UI/Button";
+import Button from "./Button";
 
 const InputForm = ({ onAddUser }) => {
   const [username, setUsername] = useState("");
@@ -51,7 +51,7 @@ const InputForm = ({ onAddUser }) => {
   };
 
   return (
-    <div>
+    <React.Fragment>
       {error && (
         <ErrorModal
           title={error.title}
@@ -76,7 +76,7 @@ const InputForm = ({ onAddUser }) => {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </div>
+    </React.Fragment>
   );
 };
 
