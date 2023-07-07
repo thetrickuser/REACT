@@ -17,6 +17,9 @@
     },
     {
       "path": "login-page"
+    },
+    {
+      "path": "food-order-app"
     }
   ],
   "settings": {}
