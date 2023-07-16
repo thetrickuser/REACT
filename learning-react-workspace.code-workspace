@@ -20,6 +20,12 @@
     },
     {
       "path": "food-order-app"
+    },
+    {
+      "path": "http-with-react"
+    },
+    {
+      "path": "react-form-inputs"
     }
   ],
   "settings": {}
