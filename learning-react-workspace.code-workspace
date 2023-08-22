@@ -26,6 +26,18 @@
     },
     {
       "path": "react-form-inputs"
+    },
+    {
+      "path": "advanced-redux"
+    },
+    {
+      "path": "redux-basics"
+    },
+    {
+      "path": "routing"
+    },
+    {
+      "path": "routing-adv"
     }
   ],
   "settings": {}
