@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartVisibileSlice from "./ui-slice";
+import uiSlice from "./ui-slice";
 import cartSlice from "./cart-slice";
 
 const store = configureStore({
   reducer: {
-    cartVisible: cartVisibileSlice.reducer,
+    ui: uiSlice.reducer,
     cart: cartSlice.reducer,
   },
 });
