@@ -7,7 +7,7 @@ function EventsNavigation() {
       <nav>
         <ul className={classes.list}>
           <li>
-            <Link to="/events">All Events</Link>
+            <Link to="/events">Go to All Events</Link>
           </li>
           <li>
             <Link to="/events/new">New Event</Link>
