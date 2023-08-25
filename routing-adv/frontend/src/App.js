@@ -38,7 +38,8 @@ import EditEventPage from "./pages/EditEventPage";
 import EventRoot from "./pages/EventRoot";
 import { loader as allEventsLoader } from "./pages/EventsPage";
 import { loader as eventLoader } from "./pages/EventDetailPage";
-import { action as newEventAction } from "./pages/NewEventPage";
+import { action as deleteEventAction } from "./pages/EventDetailPage";
+import { action as updateEventAction } from "./components/EventForm";
 import Error from "./pages/Error";
 
 const router = createBrowserRouter([
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
         element: <EventRoot />,
         children: [
           { index: true, element: <EventsPage />, loader: allEventsLoader },
-          { path: "new", element: <NewEventPage />, action: newEventAction },
+          { path: "new", element: <NewEventPage />, action: updateEventAction },
           {
             path: ":eventId",
             id: "event-detail",
@@ -62,8 +63,13 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <EventDetailPage />,
+                action: deleteEventAction,
               },
-              { path: "edit", element: <EditEventPage /> },
+              {
+                path: "edit",
+                element: <EditEventPage />,
+                action: updateEventAction,
+              },
             ],
           },
         ],

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, json, useLoaderData } from "react-router-dom";
+import { json, useLoaderData } from "react-router-dom";
 import EventsList from "../components/EventsList";
 import { eventUrl } from "../config/config";
 
